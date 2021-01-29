@@ -76,6 +76,8 @@ public interface UserRepository extends JapRepository<User, Long>{}
      - @CreatedBy        : AuditingEntityListener를 통해 처음 생성될때 자동으로 값이 들어가짐.
      - @LastModifiedDate : AuditingEntityListener를 통해 업데이트될때 자동으로 값이 들어가짐.
      - @LastModifiedBy   : AuditingEntityListener를 통해 업데이트될때 자동으로 값이 들어가짐.
+  @Builder : 요즘은 Builder를 통해 다른 곳에서 해당클래스의 생성자 생성을 쉽게 하기 위해 사용된다.
+  @Accessors(chain = true) : @Accessors(chain = true)를 통해서 업데이트시 에 builder와 같이 .으로 값을 바꿔줄 수 있다.
 -----------------------------------------------------------------------------------------------------------------------------
 
 스프링 부트 미니 프로젝트 (어드민 페이지 만들기)
@@ -110,4 +112,7 @@ public interface UserRepository extends JapRepository<User, Long>{}
 3. Entity 생성
 ![캡처](https://user-images.githubusercontent.com/62634760/106250791-7506f880-6257-11eb-9c31-0bb08c0a3268.PNG)
  - DB에 설정한 table에 맞게 클래스 Entity 생성하기 
+
+4. Repository 생성
+
 
