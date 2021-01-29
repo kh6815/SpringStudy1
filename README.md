@@ -107,5 +107,6 @@ public interface UserRepository extends JapRepository<User, Long>{}
 ![캡처](https://user-images.githubusercontent.com/62634760/106248613-95818380-6254-11eb-8179-e98a5986cec0.PNG)
 - DB에 관계설정에 맞게 table 생성
 
-
+3. Entity 생성
+ - DB에 설정한 table에 맞게 클래스 Entity 생성하기 
 
