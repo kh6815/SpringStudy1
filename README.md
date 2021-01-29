@@ -216,4 +216,10 @@ public interface UserRepository extends JapRepository<User, Long>{}
      - repository의 자동의존관계 주입을 위해 @Component 등록 
      - protected 타입을 통해 상속받은 클래스에서도 사용가능하게 만듬.
      - 들어온 Entity 제네릭 타입으로 JpaRepository<Entity, Long> baseRepository를 생성하여 구현클래스에서 따로 만들 필요 없음.
-     - 
+     
+       ![캡처](https://user-images.githubusercontent.com/62634760/106286171-b237ae80-6288-11eb-936d-366ca2acf817.PNG)
+
+     - 구현클래스인 ItemApiLogicService 작성
+     - @Service 애노테이션 등록
+     - BaseService<ItemApiRequest, ItemApiResponse, Item>을 상속받음.
+     - partnerRepository가 필요하기 때문에 @RequiredArgsConstructor를 통해 final로 의존관계주입 
