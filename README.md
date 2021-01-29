@@ -83,6 +83,7 @@ public interface UserRepository extends JapRepository<User, Long>{}
 1. ERD 설계 (Entity Relationship Diagram - 개체 관계 모델) 
 @@@@@@@@@ MySql Workbench를 통해 데이터베이스 구축  @@@@@@@@@@
 
+(https://user-images.githubusercontent.com/62634760/106245396-bbf0f000-624f-11eb-8c3b-839376f67e54.PNG)
 
 
 
