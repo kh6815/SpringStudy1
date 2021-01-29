@@ -223,3 +223,10 @@ public interface UserRepository extends JapRepository<User, Long>{}
      - @Service 애노테이션 등록
      - BaseService<ItemApiRequest, ItemApiResponse, Item>을 상속받음.
      - partnerRepository가 필요하기 때문에 @RequiredArgsConstructor를 통해 final로 의존관계주입 
+
+       ![캡처](https://user-images.githubusercontent.com/62634760/106287574-49e9cc80-628a-11eb-9c15-e5ef2a19bbef.PNG)
+     
+     - 들어온 Header<ItemApiRequest>의 request 내용에 있는 data부분을 getData로 가져오고 Item.builder를 통해 객체 생성
+     - itemRepository에 save를 통해 데이터 베이스에 sql 쿼리를 날려 데이터 저장 
+     - reponse라는 이름의 메서드를 통해 Header부분을 포함하여 만들어진 Header<ItemApiResponse>를 return 받음.
+     - response(newItem)을 controller로 
