@@ -67,6 +67,15 @@ public interface UserRepository extends JapRepository<User, Long>{}
 다대다 - @ManyToMany
 
 
+*** 여러가지 애노테이션 정리
+- @NoArgsConstructor : 기본 생성자 생성 
+  @AllArgsConstructor : 클래스안에 있는 모든 변수들을 매개변수로 갖는 생성자 생성
+  @Data(@Getter, @Setter로 나눌 수 있음) : 클래스안에 있는 변수들의 getter, setter 생성
+  @EntityListeners(AuditingEntityListener.class) 
+     - @CreatedDate      : AuditingEntityListener를 통해 처음 생성될때 자동으로 값이 들어가짐.
+     - @CreatedBy        : AuditingEntityListener를 통해 처음 생성될때 자동으로 값이 들어가짐.
+     - @LastModifiedDate : AuditingEntityListener를 통해 업데이트될때 자동으로 값이 들어가짐.
+     - @LastModifiedBy   : AuditingEntityListener를 통해 업데이트될때 자동으로 값이 들어가짐.
 -----------------------------------------------------------------------------------------------------------------------------
 
 스프링 부트 미니 프로젝트 (어드민 페이지 만들기)
@@ -80,13 +89,20 @@ public interface UserRepository extends JapRepository<User, Long>{}
 7. 필요한 Query Method 생성
 
 
+
+
 1. ERD 설계 (Entity Relationship Diagram - 개체 관계 모델) 
  - MySql Workbench를 통해 데이터베이스 구축
 ![캡처](https://user-images.githubusercontent.com/62634760/106245649-27d35880-6250-11eb-8cf5-38b106a743f8.PNG)
 
+ - user엔티티는 order_group(user의 총 주문내역, 장바구니)를 여러개 갖을 수 있으므로 일대다 관계 -> user 1 : N order_group 
+ - order_group은 여러개의 order_detail(아이템 주문내역, 장바구니에 담겨있는 아이템 주문내역들)을 가질 수 있으므로 일대다 관계 -> order_group 1 : N order_detail
+ - item(한가지 아이템이 여러개의 주문 내역을 가질 수 있음)은 여러개의 order_detail를 가질 수 있으므로 일대다 -> item 1 : N order_detail
+ - partner사는 여러개의 item을 사이트에 등록시킬 수 있으므로 일대다 -> partner 1 : N item
+ - category 한개의 카테고리에 여러 파트너사가 들어갈 수 있으므로 일대다 -> category 1 : N category
 
-
-
+2. Table 생성
+- DB에 관계설정에 맞게 table 생성
 
 
 
