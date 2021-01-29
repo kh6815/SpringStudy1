@@ -260,8 +260,20 @@ public interface UserRepository extends JapRepository<User, Long>{}
 
 1. post(create)
 
+  ![post1](https://user-images.githubusercontent.com/62634760/106291694-4c025a00-628f-11eb-9d29-810a7c56dcf6.PNG)
+  ![post2](https://user-images.githubusercontent.com/62634760/106291701-4dcc1d80-628f-11eb-9826-01f799e8a295.PNG)
+
 2. get(read)
+
+  ![get1](https://user-images.githubusercontent.com/62634760/106291707-502e7780-628f-11eb-93d0-443027b75583.PNG)
+  ![get2](https://user-images.githubusercontent.com/62634760/106291715-515fa480-628f-11eb-955c-08a0bab2c2aa.PNG)
 
 3. put(update)
 
+  ![put1](https://user-images.githubusercontent.com/62634760/106291722-53296800-628f-11eb-9760-c2dc707a5d7e.PNG)
+  ![put2](https://user-images.githubusercontent.com/62634760/106291726-54f32b80-628f-11eb-9e0d-a4dc229abdc9.PNG)
+
 4. delete(delete)
+
+  ![delete](https://user-images.githubusercontent.com/62634760/106291731-56bcef00-628f-11eb-8d86-c93cacfc524f.PNG)
+  ![delete2](https://user-images.githubusercontent.com/62634760/106291733-57ee1c00-628f-11eb-87b6-7f11e893c6d7.PNG)
