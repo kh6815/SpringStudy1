@@ -284,3 +284,5 @@ public interface UserRepository extends JapRepository<User, Long>{}
 
 
 *** DB(Mysql)에 테스트 데이터 저장
+
+  ![캡처](https://user-images.githubusercontent.com/62634760/106292193-e2cf1680-628f-11eb-9e01-6c3d1331d165.PNG)
