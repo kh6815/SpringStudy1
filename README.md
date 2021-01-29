@@ -118,4 +118,11 @@ public interface UserRepository extends JapRepository<User, Long>{}
 - Repository를 interface로 만들고 JapRepository인터페이스를 상속받아서 <DB에 해당하는 클래스 엔티티, primary key 타입 명시>으로 생성
 
 5. Repository 테스트
+![캡처](https://user-images.githubusercontent.com/62634760/106252853-13945900-625a-11eb-86c3-632cf4971c8e.PNG)
+- Repository는 @Repository를 통해 @component로 스프링 컨테이너에 등록되기 때문에 Autowired로 자동주입이 가능하다.
+- 값을 세팅하고 save를 통해 DB에 값을 저장한다.
 
+6. 연관관계 설정
+- @OneToMany(fetch = FetchType.LAZY, mappedBy = "user") -> fetch = FetchType.LAZY는 지연로딩으로 해당하는 값만 먼저 가져온다. 실무에서는 보통 지연로딩을 사용,
+                                                           mappedBy = "user"는 관계설정된 orderGroup클래스의 user 변수와 맵핑하겠다는 의미이다.
+- user클래스 : user클래스는 orderGroup과  1 : N관계이므로, user클래스기준 @OneToMany이 붙는다.
