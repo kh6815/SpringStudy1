@@ -198,6 +198,7 @@ public interface UserRepository extends JapRepository<User, Long>{}
         - update : PutMapping("") 방식을 통해 원하는 업데이트 json값을 가져옴, @RequestBody로 json데이터를 매개변수로 받음
         - delete : DeleteMapping("{id}") 방식으로 id값을 맵핑, @PathVariable로 id값을 매개변수로 받음
     - 해당하는 서비스로직에 넘겨서 return값을 받음.
+     
 
     - @RequestMapping("/api/user")으로 HTTP 주소 맵핑
 
