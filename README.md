@@ -114,5 +114,8 @@ public interface UserRepository extends JapRepository<User, Long>{}
  - DB에 설정한 table에 맞게 클래스 Entity 생성하기 
 
 4. Repository 생성
+![캡처](https://user-images.githubusercontent.com/62634760/106251381-3de51700-6258-11eb-9049-251cf43ba064.PNG)
+- Repository를 interface로 만들고 JapRepository인터페이스를 상속받아서 <DB에 해당하는 클래스 엔티티, primary key 타입 명시>으로 생성
 
+5. Repository 테스트
 
