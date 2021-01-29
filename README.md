@@ -169,9 +169,8 @@ public interface UserRepository extends JapRepository<User, Long>{}
     - java에서 변수를 작성할 때는 보통 camel case로 작성하는데 통신규격 구간에서는 snake case를 사용함으로 
       aplication.yaml파일의 spring :  부분에 'jackson:property-naming-strategy: SNAKE_CASE'을 추가하여 spring에서 http로 데이터를 전송할 때는 변수 이름을 snake case로 바꿔서 전송
     - Header 클래스를 Header<T> 제네릭 타입으로 만들어, 들어오는 T 타입(Request, Response)의 data 변수를 만들고, static으로 Header의 클래스 변수를 생성한다. 
-    - 만들어진 메서드의 반환타입을 <T>타입으로 설정하고 Header.build를 통해 공통데이터와 데이터를 만들어준다, retrun 할때 Header를 Header<T>으로 cast해서 return한다.(메서드의 반환타입을 들어온 타입으로 이미 설정해놨기 때문에 리턴시 타입을 맞춰줘야함.)
+    - 만들어진 메서드의 반환타입을 <T>타입으로 설정하고 Header.build를 통해 공통데이터와 데이터를 만들어준다, retrun 할때 Header를 Header<T>으로 cast해서 return한다.(메서드의 반환타       입을 들어온 타입으로 이미 설정해놨기 때문에 리턴시 타입을 맞춰줘야함.)
       ![캡처](https://user-images.githubusercontent.com/62634760/106265198-067f6600-626a-11eb-9701-34c30d9b5998.PNG)
-
     - Header에 T타입으로 들어갈 Request와 Response 작성 
     - DB에 자동적으로 들어갈 createdAt, createdBy, updatedAt, updatedBy를 제외하고 나머지 칼럼 작성 
     - orderGroup의 Request, Response경우 엔티티의 User user를 userid 칼럼으로 받음
