@@ -90,13 +90,7 @@ public interface UserRepository extends JapRepository<User, Long>{}
 
 
 
-
-
-
-
-
-
-
+-----------------------------------------------------------------------------------------------------------------------------
 
 1. ERD 설계 -(Entity Relationship Diagram - 개체 관계 모델) 
 
