@@ -255,5 +255,13 @@ public interface UserRepository extends JapRepository<User, Long>{}
        ![캡처2](https://user-images.githubusercontent.com/62634760/106288880-eb255280-628b-11eb-8aa9-5bca9497136f.PNG)
 
 
+-----------------------------------------------------------------------------------------------------------------------------
+*** Chrome의 YREC을 통해 간편하게 JSON 데이터 주고 받아 DB(Mysql)에 저장하기
 
-json데이터 주고받는거 크롬으로 보여주기, mysql데이터 캡처 사진 넣기 
+1. post(create)
+
+2. get(read)
+
+3. put(update)
+
+4. delete(delete)
