@@ -69,20 +69,20 @@ public interface UserRepository extends JapRepository<User, Long>{}
 
 *** 여러가지 애노테이션 정리
 - @NoArgsConstructor : 기본 생성자 생성 
-  @AllArgsConstructor : 클래스안에 있는 모든 변수들을 매개변수로 갖는 생성자 생성
-  @Data(@Getter, @Setter로 나눌 수 있음) : 클래스안에 있는 변수들의 getter, setter 생성
-  @EntityListeners(AuditingEntityListener.class) 
+- @AllArgsConstructor : 클래스안에 있는 모든 변수들을 매개변수로 갖는 생성자 생성
+- @Data(@Getter, @Setter로 나눌 수 있음) : 클래스안에 있는 변수들의 getter, setter 생성
+- @EntityListeners(AuditingEntityListener.class) 
      - @CreatedDate      : AuditingEntityListener를 통해 처음 생성될때 자동으로 값이 들어가짐.
      - @CreatedBy        : AuditingEntityListener를 통해 처음 생성될때 자동으로 값이 들어가짐.
      - @LastModifiedDate : AuditingEntityListener를 통해 업데이트될때 자동으로 값이 들어가짐.
      - @LastModifiedBy   : AuditingEntityListener를 통해 업데이트될때 자동으로 값이 들어가짐.
-  @Builder : 요즘은 Builder를 통해 다른 곳에서 해당클래스의 생성자 생성을 쉽게 하기 위해 사용된다.
-  @Accessors(chain = true) : @Accessors(chain = true)를 통해서 업데이트시 에 builder와 같이 .으로 값을 바꿔줄 수 있다.
-  @RestController : controller 클래스라고 설정
-  @RequestMapping("/api/user") : HTTP주소 맵핑, controller클래스에서 사용
-  @Slf4j  : 실제 현업에서는 System.out.println();으로 데이터를 보는것이 아니라 로깅시스템을 통해서 로그를 남기기 때문에
+- @Builder : 요즘은 Builder를 통해 다른 곳에서 해당클래스의 생성자 생성을 쉽게 하기 위해 사용된다.
+- @Accessors(chain = true) : @Accessors(chain = true)를 통해서 업데이트시 에 builder와 같이 .으로 값을 바꿔줄 수 있다.
+- @RestController : controller 클래스라고 설정
+- @RequestMapping("/api/user") : HTTP주소 맵핑, controller클래스에서 사용
+- @Slf4j  : 실제 현업에서는 System.out.println();으로 데이터를 보는것이 아니라 로깅시스템을 통해서 로그를 남기기 때문에
             lombok에 있는 Simple Logging 파사드? 4 java인 @Slf4j를 사용하여 로그를 남긴다.
-  @RequiredArgsConstructor : lombok사용, Autowired의 애노테이션 없이 final이 붙은 변수에 자동적으로 의존관계주입을 해줌 
+- @RequiredArgsConstructor : lombok사용, Autowired의 애노테이션 없이 final이 붙은 변수에 자동적으로 의존관계주입을 해줌 
 
 
 *** application.yaml
@@ -169,7 +169,7 @@ public interface UserRepository extends JapRepository<User, Long>{}
       aplication.yaml파일의 spring :  부분에 'jackson:property-naming-strategy: SNAKE_CASE'을 추가하여 spring에서 http로 데이터를 전송할 때       는 변수 이름을 snake case로 바꿔서 전송
     - Header 클래스를 Header<T> 제네릭 타입으로 만들어, 들어오는 T 타입(Request, Response)의 data 변수를 만들고, static으로 Header의 클래스       변수를 생성한다. 
     - 만들어진 메서드의 반환타입을 <T>타입으로 설정하고 Header.build를 통해 공통데이터와 데이터를 만들어준다, retrun 할때 Header를               Header<T>으로 cast해서 return한다.(메서드의 반환타입을 들어온 타입으로 이미 설정해놨기 때문에 리턴시 타입을 맞춰줘야함.)
-
+      ![캡처](https://user-images.githubusercontent.com/62634760/106265198-067f6600-626a-11eb-9701-34c30d9b5998.PNG)
 
 
 
