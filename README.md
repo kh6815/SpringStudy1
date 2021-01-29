@@ -173,7 +173,9 @@ public interface UserRepository extends JapRepository<User, Long>{}
       ![캡처](https://user-images.githubusercontent.com/62634760/106265198-067f6600-626a-11eb-9701-34c30d9b5998.PNG)
     - Header에 T타입으로 들어갈 Request와 Response 작성 
     - DB에 자동적으로 들어갈 createdAt, createdBy, updatedAt, updatedBy를 제외하고 나머지 칼럼 작성 
-
+    - orderGroup의 Request, Response경우 엔티티의 User user를 userid 칼럼으로 받음
+      ![캡처](https://user-images.githubusercontent.com/62634760/106266044-4561eb80-626b-11eb-9f71-c18df377485b.PNG)
+      ![캡처1](https://user-images.githubusercontent.com/62634760/106266047-472baf00-626b-11eb-9d8d-55db2134b8a4.PNG)
 
    2)
 
