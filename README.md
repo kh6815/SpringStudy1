@@ -207,3 +207,5 @@ public interface UserRepository extends JapRepository<User, Long>{}
     - lombok인 ReqiredArgsConstructor를 통해 final로 된 변수에 의존관계 자동주입 
     - CrudController<Req, Res, Entity>를 상속받음
     - CrudController를 상속했기때문에 BaseService<Req, Res, Entity> 의존관계 자동 주입
+
+      ![캡처](https://user-images.githubusercontent.com/62634760/106284579-bd89da80-6286-11eb-92e6-6e7397adc83d.PNG)
