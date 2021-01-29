@@ -88,7 +88,8 @@ public interface UserRepository extends JapRepository<User, Long>{}
 4. Repository 생성
 5. Repository 테스트
 6. 연관관계 설정
-7. 필요한 Query Method 생성
+7. JPA의 추가기능
+8. 필요한 Query Method 생성
 
 
 
@@ -123,6 +124,26 @@ public interface UserRepository extends JapRepository<User, Long>{}
 - 값을 세팅하고 save를 통해 DB에 값을 저장한다.
 
 6. 연관관계 설정
-- @OneToMany(fetch = FetchType.LAZY, mappedBy = "user") -> fetch = FetchType.LAZY는 지연로딩으로 해당하는 값만 먼저 가져온다. 실무에서는 보통 지연로딩을 사용,
-                                                           mappedBy = "user"는 관계설정된 orderGroup클래스의 user 변수와 맵핑하겠다는 의미이다.
+![캡처](https://user-images.githubusercontent.com/62634760/106255793-d29e4380-625d-11eb-83eb-ca82e9726ab2.PNG)
+- @OneToMany(fetch = FetchType.LAZY, mappedBy = "user") -> fetch = FetchType.LAZY는 지연로딩으로 해당하는 값만 먼저 가져온다. 실무에서는 보통 지연로딩을 사용, mappedBy = "user"는 관계설정된 orderGroup클래스의 user 변수와 맵핑하겠다는 의미이다.
 - user클래스 : user클래스는 orderGroup과  1 : N관계이므로, user클래스기준 @OneToMany이 붙는다.
+
+![캡처1](https://user-images.githubusercontent.com/62634760/106255801-d4680700-625d-11eb-90a1-43501bd39e1f.PNG)
+- orderGroup클래스 : orderGroup클래스는 user와 N : 1관계이므로, orderGroup클래스 기준 @ManyToOne이 붙는다.
+- 관계설정된 user클래스의 객체를 변수타입으로 지정한다. -> DB에 저장된 user_id와 맵핑된다.
+
+7. JPA의 추가기능 
+- 객체가 생성될 때와 업데이트될 때 자동으로 값을 넣어줄 수 있는 JPA기능
+  1) Config 폴더 -> JpaConfig클래스 생성
+       : Configuration 애노테이션을 통해 설정파일이라고 설정, EnableJpaAuditing 애노테이션을 통해 JPA에 감시 활성화
+  
+  2) component폴더 -> LoginUserAuditorAware파일 생성 
+       : @Component등록, AuditorAware<String>타입의 인터페이스를 상속한다.
+       : Optional<String> getCurrentAuditor()를 오버라이드 해서 ("AdminServer")를 리턴함.
+
+  3) 사용하고자하는 엔티티 클래스에 @EntityListeners(AuditingEntityListener.class) 설정
+       : CreatedBy(엔티티 생성시), LastModifieBy(엔티티 업데이트시) 자동으로 ("AdminServer")값이 들어감
+       : @CreatedDate,  @LastModifiedDate 자동으로 시간이 저장됨.
+
+
+8. 필요한 Query Method 생성
