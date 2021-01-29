@@ -136,14 +136,17 @@ public interface UserRepository extends JapRepository<User, Long>{}
 - 객체가 생성될 때와 업데이트될 때 자동으로 값을 넣어줄 수 있는 JPA기능
   1) Config 폴더 -> JpaConfig클래스 생성
        : Configuration 애노테이션을 통해 설정파일이라고 설정, EnableJpaAuditing 애노테이션을 통해 JPA에 감시 활성화
-  
+    ![캡처](https://user-images.githubusercontent.com/62634760/106260070-5ad31780-6263-11eb-8651-3fabf4e4a71e.PNG)
+
   2) component폴더 -> LoginUserAuditorAware파일 생성 
        : @Component등록, AuditorAware<String>타입의 인터페이스를 상속한다.
        : Optional<String> getCurrentAuditor()를 오버라이드 해서 ("AdminServer")를 리턴함.
+     ![캡처1](https://user-images.githubusercontent.com/62634760/106260081-5e669e80-6263-11eb-8e57-1cdbe7330c7e.PNG
 
   3) 사용하고자하는 엔티티 클래스에 @EntityListeners(AuditingEntityListener.class) 설정
        : CreatedBy(엔티티 생성시), LastModifieBy(엔티티 업데이트시) 자동으로 ("AdminServer")값이 들어감
        : @CreatedDate,  @LastModifiedDate 자동으로 시간이 저장됨.
-
+     ![캡처2](https://user-images.githubusercontent.com/62634760/106260089-60306200-6263-11eb-8e32-0dc78568552c.PNG)
+     ![캡처3](https://user-images.githubusercontent.com/62634760/106260102-61fa2580-6263-11eb-9776-111b3d6fe7ed.PNG)
 
 8. 필요한 Query Method 생성
