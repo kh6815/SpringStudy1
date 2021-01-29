@@ -235,3 +235,25 @@ public interface UserRepository extends JapRepository<User, Long>{}
 
      - 매개변수로 들어온id를 baseRepository.findById를 통해 해당하는 Optional<item>을 가져옴
      - Optional기능인 .map을 통해 반환값을 Header<ItemApiResponse>로 바꾸고, 해당하는 값이 없을 경우 orElseGet을 통해 Header.ERROR를 띄어준        다.
+    
+       ![캡처](https://user-images.githubusercontent.com/62634760/106288780-d1840b00-628b-11eb-9fa4-68e9a38eabb0.PNG)
+
+     - 매개변수로 들어온 update request의 getData를 통해 값을 가져오고 baseRepository에서 원하는 객체를 아이디를 통해 가져온다.
+     - 해당하는 객체(Optional 형태)가 있으면 .map을 통해 들어온 request값으로 세팅해주고 baseRepository.save를 통해 저장한다.
+     - 저장한 객체를 response메서드로 넘겨 원하는 Header<ItemApiResponse>를 return 한다.
+
+       ![캡처1](https://user-images.githubusercontent.com/62634760/106288873-e95b8f00-628b-11eb-8130-7f88caa97ed7.PNG)
+
+     - delete는 반환값은 response가 없으므로 그냥 Header만 반환
+     - 들어온 request의 id값을 통해 baseRepository.findById(id)로 원하는 객체를 가져오고 baseRepository.findById.delete를 통해 그 객체를 지워준다. 그리고 Header만 반환하는 클래스 메서드인 Header.OK를 return한다.
+     - orElseGet을 통해 해당하는 아이디의 객체가 없으면 데이터 없음의 Header.ERROR를 반환한다.
+
+     - response 메서드는 return 값으로 ItemApiResponse를 반환하며, 매개변수로는 itme 객체를 받는다.
+     - 새로운 ItemApiResponse.build를 통해 새로 생성됬거나 업데이트된 item 객체의 값을 저장한다.
+     - Header의 클래스 메서드인 Header.OK(body)에 생성된 ItemApiResponse를 넘겨준다. 그럼 Header<ItemApiResponse>를 return 해준다.
+     
+       ![캡처2](https://user-images.githubusercontent.com/62634760/106288880-eb255280-628b-11eb-8aa9-5bca9497136f.PNG)
+
+
+
+json데이터 주고받는거 크롬으로 보여주기, mysql데이터 캡처 사진 넣기 
