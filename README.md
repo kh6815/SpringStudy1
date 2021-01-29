@@ -148,11 +148,13 @@ public interface UserRepository extends JapRepository<User, Long>{}
 - 객체가 생성될 때와 업데이트될 때 자동으로 값을 넣어줄 수 있는 JPA기능
   1) Config 폴더 -> JpaConfig클래스 생성
        : Configuration 애노테이션을 통해 설정파일이라고 설정, EnableJpaAuditing 애노테이션을 통해 JPA에 감시 활성화
-    ![캡처](https://user-images.githubusercontent.com/62634760/106260070-5ad31780-6263-11eb-8651-3fabf4e4a71e.PNG)
+
+     ![캡처](https://user-images.githubusercontent.com/62634760/106260070-5ad31780-6263-11eb-8651-3fabf4e4a71e.PNG)
 
   2) component폴더 -> LoginUserAuditorAware파일 생성 
        : @Component등록, AuditorAware<String>타입의 인터페이스를 상속한다.
        : Optional<String> getCurrentAuditor()를 오버라이드 해서 ("AdminServer")를 리턴함.
+
      ![캡처1](https://user-images.githubusercontent.com/62634760/106260081-5e669e80-6263-11eb-8e57-1cdbe7330c7e.PNG)
 
   3) 사용하고자하는 엔티티 클래스에 @EntityListeners(AuditingEntityListener.class) 설정
@@ -170,6 +172,7 @@ public interface UserRepository extends JapRepository<User, Long>{}
     - Header 클래스를 Header<T> 제네릭 타입으로 만들어, 들어오는 T 타입(Request, Response)의 data 변수를 만들고, static으로 Header의 클래스 변수를 생성한다. 
     - 만들어진 메서드의 반환타입을 <T>타입으로 설정하고 Header.build를 통해 공통데이터와 데이터를 만들어준다, retrun 할때 Header를 Header<T>으로 cast해서 return한다.(메서드의 반환타입을 들어온 타입으로 이미 설정해놨기 때문에 리턴시 타입을 맞춰줘야함.)
       ![캡처](https://user-images.githubusercontent.com/62634760/106265198-067f6600-626a-11eb-9701-34c30d9b5998.PNG)
+    -
     - Header에 T타입으로 들어갈 Request와 Response 작성 
     - DB에 자동적으로 들어갈 createdAt, createdBy, updatedAt, updatedBy를 제외하고 나머지 칼럼 작성 
     - orderGroup의 Request, Response경우 엔티티의 User user를 userid 칼럼으로 받음
