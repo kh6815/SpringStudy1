@@ -78,6 +78,16 @@ public interface UserRepository extends JapRepository<User, Long>{}
      - @LastModifiedBy   : AuditingEntityListener를 통해 업데이트될때 자동으로 값이 들어가짐.
   @Builder : 요즘은 Builder를 통해 다른 곳에서 해당클래스의 생성자 생성을 쉽게 하기 위해 사용된다.
   @Accessors(chain = true) : @Accessors(chain = true)를 통해서 업데이트시 에 builder와 같이 .으로 값을 바꿔줄 수 있다.
+  @RestController : controller 클래스라고 설정
+  @RequestMapping("/api/user") : HTTP주소 맵핑, controller클래스에서 사용
+  @Slf4j  : 실제 현업에서는 System.out.println();으로 데이터를 보는것이 아니라 로깅시스템을 통해서 로그를 남기기 때문에
+            lombok에 있는 Simple Logging 파사드? 4 java인 @Slf4j를 사용하여 로그를 남긴다.
+  @RequiredArgsConstructor : lombok사용, Autowired의 애노테이션 없이 final이 붙은 변수에 자동적으로 의존관계주입을 해줌 
+
+
+*** application.yaml
+ - 요즘은 yaml파일을 선호 
+ 
 -----------------------------------------------------------------------------------------------------------------------------
 
 스프링 부트 미니 프로젝트 (어드민 페이지 만들기)
@@ -89,7 +99,8 @@ public interface UserRepository extends JapRepository<User, Long>{}
 5. Repository 테스트
 6. 연관관계 설정
 7. JPA의 추가기능
-8. 필요한 Query Method 생성
+8. 필요한 Query Method 생성 및 서비스 구현
+
 
 
 
@@ -151,4 +162,11 @@ public interface UserRepository extends JapRepository<User, Long>{}
      ![캡처2](https://user-images.githubusercontent.com/62634760/106260089-60306200-6263-11eb-8e32-0dc78568552c.PNG)
      ![캡처3](https://user-images.githubusercontent.com/62634760/106260102-61fa2580-6263-11eb-9776-111b3d6fe7ed.PNG)
 
-8. 필요한 Query Method 생성
+8. 필요한 Query Method 생성 및 서비스 구현
+ 1) HTTP 웹페이지와 json형식으로 데이터를 주고 받기 위해 
+
+
+ 2) controller
+    - @RestController로 controller 클래스 설정, @RequestMapping("/api/user")으로 HTTP 주소 맵핑
+    - 해당 서비스로직 생성, 
+        create : PostMapping해주고  
