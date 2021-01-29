@@ -256,6 +256,8 @@ public interface UserRepository extends JapRepository<User, Long>{}
 
 
 -----------------------------------------------------------------------------------------------------------------------------
+
+
 *** Chrome의 YREC을 통해 간편하게 JSON 데이터 주고 받아 DB(Mysql)에 저장하기
 
 1. post(create)
@@ -277,3 +279,8 @@ public interface UserRepository extends JapRepository<User, Long>{}
 
   ![delete](https://user-images.githubusercontent.com/62634760/106291731-56bcef00-628f-11eb-8d86-c93cacfc524f.PNG)
   ![delete2](https://user-images.githubusercontent.com/62634760/106291733-57ee1c00-628f-11eb-87b6-7f11e893c6d7.PNG)
+
+
+
+
+*** DB(Mysql)에 테스트 데이터 저장
