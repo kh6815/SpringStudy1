@@ -142,11 +142,12 @@ public interface UserRepository extends JapRepository<User, Long>{}
   2) component폴더 -> LoginUserAuditorAware파일 생성 
        : @Component등록, AuditorAware<String>타입의 인터페이스를 상속한다.
        : Optional<String> getCurrentAuditor()를 오버라이드 해서 ("AdminServer")를 리턴함.
-     ![캡처1](https://user-images.githubusercontent.com/62634760/106260081-5e669e80-6263-11eb-8e57-1cdbe7330c7e.PNG
+     ![캡처1](https://user-images.githubusercontent.com/62634760/106260081-5e669e80-6263-11eb-8e57-1cdbe7330c7e.PNG)
 
   3) 사용하고자하는 엔티티 클래스에 @EntityListeners(AuditingEntityListener.class) 설정
        : CreatedBy(엔티티 생성시), LastModifieBy(엔티티 업데이트시) 자동으로 ("AdminServer")값이 들어감
        : @CreatedDate,  @LastModifiedDate 자동으로 시간이 저장됨.
+
      ![캡처2](https://user-images.githubusercontent.com/62634760/106260089-60306200-6263-11eb-8e32-0dc78568552c.PNG)
      ![캡처3](https://user-images.githubusercontent.com/62634760/106260102-61fa2580-6263-11eb-9776-111b3d6fe7ed.PNG)
 
