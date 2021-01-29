@@ -209,3 +209,11 @@ public interface UserRepository extends JapRepository<User, Long>{}
     - CrudController를 상속했기때문에 BaseService<Req, Res, Entity> 의존관계 자동 주입
 
       ![캡처](https://user-images.githubusercontent.com/62634760/106284579-bd89da80-6286-11eb-92e6-6e7397adc83d.PNG)
+    
+    4) service : Header로 만들어진 response return 
+     - 추상클래스인 BaseService<Req, Res, Entity> 작성
+     - Crudinterface를 해당<Req, Res>제네릭 값으로 상속받음.
+     - repository의 자동의존관계 주입을 위해 @Component 등록 
+     - protected 타입을 통해 상속받은 클래스에서도 사용가능하게 만듬.
+     - 들어온 Entity 제네릭 타입으로 JpaRepository<Entity, Long> baseRepository를 생성하여 구현클래스에서 따로 만들 필요 없음.
+     - 
