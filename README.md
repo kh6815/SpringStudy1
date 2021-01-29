@@ -181,9 +181,20 @@ public interface UserRepository extends JapRepository<User, Long>{}
 
    (2) CRUD interface 작성(controller와 service 로직에 사용)
       - <Req, Res>을 받아 사용하는 인터페이스를 만듬
-
+        ![캡처](https://user-images.githubusercontent.com/62634760/106267154-9a523180-626c-11eb-903a-3893c77ed23c.PNG)
 
    (3) controller : 객체를 return하면 json형식으로 변환하여 보냄
-    - @RestController로 controller 클래스 설정, @RequestMapping("/api/user")으로 HTTP 주소 맵핑
-    - 해당 서비스로직 생성, 
-        create : PostMapping해주고  
+    - controller폴더에 CrudController 추상클래스 작성
+    - @Autowired를 사용하기 위해 @Component로 스프링컨테이너에 등록   
+    - 추상클래스인 CrudController는 <Req, Res, Entity>를 필요로 함.
+    - CrudInterface<Req,Res>를 상속받음.
+    - 추상클래스인 BaseService에 의존관계주입
+    - Header<Res>를 반환하는 해당 컨트롤러로직 생성
+        - create : PostMapping해주고, @RequestBody로 json데이터를 매개변수로 받음
+        - read   : GetMapping("{id}") 방식으로 id값을 맵핑, @PathVariable로 id값을 매개변수로 받음
+        - update : PutMapping("") 방식을 통해 원하는 업데이트 json값을 가져옴, @RequestBody로 json데이터를 매개변수로 받음
+        - delete : DeleteMapping("{id}") 방식으로 id값을 맵핑, @PathVariable로 id값을 매개변수로 받음
+    - 해당하는 서비스로직에 넘겨서 return값을 받음.
+
+    - @RequestMapping("/api/user")으로 HTTP 주소 맵핑
+
