@@ -198,7 +198,12 @@ public interface UserRepository extends JapRepository<User, Long>{}
         - update : PutMapping("") 방식을 통해 원하는 업데이트 json값을 가져옴, @RequestBody로 json데이터를 매개변수로 받음
         - delete : DeleteMapping("{id}") 방식으로 id값을 맵핑, @PathVariable로 id값을 매개변수로 받음
     - 해당하는 서비스로직에 넘겨서 return값을 받음.
-     
 
-    - @RequestMapping("/api/user")으로 HTTP 주소 맵핑
+     ![캡처](https://user-images.githubusercontent.com/62634760/106283600-7d762800-6285-11eb-9419-4b60cd9bf567.PNG)
 
+    - 구현클래스 ItemApiController 작성
+    - @RestController 애노테이션 설정으로 controller 클래스라고 설정
+    - @RequestMapping을 통해 Http 주소 맵핑   
+    - lombok인 ReqiredArgsConstructor를 통해 final로 된 변수에 의존관계 자동주입 
+    - CrudController<Req, Res, Entity>를 상속받음
+    - CrudController를 상속했기때문에 BaseService<Req, Res, Entity> 의존관계 자동 주입
