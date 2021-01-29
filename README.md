@@ -229,4 +229,9 @@ public interface UserRepository extends JapRepository<User, Long>{}
      - 들어온 Header<ItemApiRequest>의 request 내용에 있는 data부분을 getData로 가져오고 Item.builder를 통해 객체 생성
      - itemRepository에 save를 통해 데이터 베이스에 sql 쿼리를 날려 데이터 저장 
      - reponse라는 이름의 메서드를 통해 Header부분을 포함하여 만들어진 Header<ItemApiResponse>를 return 받음.
-     - response(newItem)을 controller로 
+     - response(newItem)을 controller로 retrun 
+      
+       ![캡처](https://user-images.githubusercontent.com/62634760/106288286-2e32f600-628b-11eb-8ccd-4d504ef8e0ec.PNG)
+
+     - 매개변수로 들어온id를 baseRepository.findById를 통해 해당하는 Optional<item>을 가져옴
+     - Optional기능인 .map을 통해 반환값을 Header<ItemApiResponse>로 바꾸고, 해당하는 값이 없을 경우 orElseGet을 통해 Header.ERROR를 띄어준        다.
