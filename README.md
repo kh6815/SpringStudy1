@@ -87,7 +87,7 @@ public interface UserRepository extends JapRepository<User, Long>{}
 
 *** application.yaml
  - 요즘은 yaml파일을 선호 
- 
+![캡처3](https://user-images.githubusercontent.com/62634760/106262373-43495e00-6266-11eb-81f1-ca6fe914d625.PNG)
 -----------------------------------------------------------------------------------------------------------------------------
 
 스프링 부트 미니 프로젝트 (어드민 페이지 만들기)
