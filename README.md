@@ -124,6 +124,7 @@ public interface UserRepository extends JapRepository<User, Long>{}
 - 값을 세팅하고 save를 통해 DB에 값을 저장한다.
 
 6. 연관관계 설정
+
 ![캡처](https://user-images.githubusercontent.com/62634760/106255793-d29e4380-625d-11eb-83eb-ca82e9726ab2.PNG)
 - @OneToMany(fetch = FetchType.LAZY, mappedBy = "user") -> fetch = FetchType.LAZY는 지연로딩으로 해당하는 값만 먼저 가져온다. 실무에서는 보통 지연로딩을 사용, mappedBy = "user"는 관계설정된 orderGroup클래스의 user 변수와 맵핑하겠다는 의미이다.
 - user클래스 : user클래스는 orderGroup과  1 : N관계이므로, user클래스기준 @OneToMany이 붙는다.
