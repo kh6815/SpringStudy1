@@ -338,3 +338,8 @@ public interface UserRepository extends JapRepository<User, Long>{}
     - 앞 설정을 가진 Pageable객체를 매개변수로 받음
  
    ![캡처1](https://user-images.githubusercontent.com/62634760/106352480-d1851900-6326-11eb-9c0c-cc603b143294.PNG)
+
+ - 결과 
+    - 첫번째 페이지 http://localhost:8080/api/user?page=0 (첫페이지는 생략가능) 
+     
+    - 두번째 페이지 http://localhost:8080/api/user?page=1 
