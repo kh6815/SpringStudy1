@@ -286,3 +286,31 @@ public interface UserRepository extends JapRepository<User, Long>{}
 *** DB(Mysql)에 테스트 데이터 저장
 
   ![캡처](https://user-images.githubusercontent.com/62634760/106292193-e2cf1680-628f-11eb-9e01-6c3d1331d165.PNG)
+
+
+
+*** 페이징 처리 1
+ - front 단에서 버튼 클릭으로 원하는 유저 데이터 수를 페이지별로 보여줄 수 있는 페이징 처리
+ - user에 관해서만 진행해보았다.
+ - model 폴더 -> Pagination 클래스 생성
+ - Pagination 클래스는 데이터베이스 페이지를 가져옴.
+    - private Integer totalPages; //총 몇개의 페이지가 있는지?
+    - private Long totalElements; //총 몇개의 엘리먼트를 가지고 있는지? (총 유저 수가 몇명인지?)
+    - private Integer currentPage; //현재 페이지는 몇번째인지?
+    - private Integer currentElements; //총 몇개의 엘리먼트가 내려갔는지?
+
+
+
+
+ - Header클래스에 private Pagination pagination 변수 생성과 pagination데이터를 넣을 수 있는 클래스메서드   를 만듬.(화면단에 데이터를 전송하기 위해서)
+
+
+
+ - Pageable 개념정리
+   - 웹 개발 시 Pagination 과 Sorting은 필수적이라 할 수 있다. 하지만 개별적으로 구현하는 것과 페이징 쿼리를 날리는 것은 번거롭다. 
+   - Spring Data JPA의 Pageable을 사용하면 이런 문제들을 쉽게 해결할 수 있고 서비스 로직에 집중할 수 있다.
+   - Pageable 장점 
+     - 요건에 맞는 Pagination을 구현할 수 있다.
+     - 정렬이 필요한 데이터를 쉽게 Sorting 할 수 있다.
+ - 먼저 
+
