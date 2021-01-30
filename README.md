@@ -341,5 +341,12 @@ public interface UserRepository extends JapRepository<User, Long>{}
 
  - 결과 
     - 첫번째 페이지 http://localhost:8080/api/user?page=0 (첫페이지는 생략가능) 
-     
+       ![1](https://user-images.githubusercontent.com/62634760/106352668-4ad13b80-6328-11eb-8343-6c13e2f13f2d.PNG)
+       ![2](https://user-images.githubusercontent.com/62634760/106352671-4e64c280-6328-11eb-8af0-0f73d3185e05.PNG)
+
     - 두번째 페이지 http://localhost:8080/api/user?page=1 
+       ![3](https://user-images.githubusercontent.com/62634760/106352673-50c71c80-6328-11eb-89b6-354ac5b9b6f9.PNG)
+       ![4](https://user-images.githubusercontent.com/62634760/106352674-51f84980-6328-11eb-851a-a41a13ada3a3.PNG)
+
+ - 미리 만들어둔 프론트 엔드단과 결합
+
