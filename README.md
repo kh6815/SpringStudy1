@@ -299,11 +299,13 @@ public interface UserRepository extends JapRepository<User, Long>{}
     - private Integer currentPage; //현재 페이지는 몇번째인지?
     - private Integer currentElements; //총 몇개의 엘리먼트가 내려갔는지?
 
+   ![캡처2](https://user-images.githubusercontent.com/62634760/106352460-a7cbf200-6326-11eb-900c-08c1a6e5ad2e.PNG)
 
 
 
- - Header클래스에 private Pagination pagination 변수 생성과 pagination데이터를 넣을 수 있는 클래스메서드   를 만듬.(화면단에 데이터를 전송하기 위해서)
-
+ - Header클래스에 private Pagination pagination 변수 생성과 pagination데이터를 넣을 수 있는 클래스메서드를 만듬.(화면단에 데이터를 전송하기 위해서)
+ 
+   ![캡처3](https://user-images.githubusercontent.com/62634760/106352468-b7e3d180-6326-11eb-8e03-4442c14791af.PNG)
 
 
  - Pageable 개념정리
@@ -326,3 +328,13 @@ public interface UserRepository extends JapRepository<User, Long>{}
        - users.getNumberOfElements() : 현재 가져온 user정보 갯수
  - controller로 return할 Header.OK(userApiResponsesList, pagination) 생성
 
+   ![캡처](https://user-images.githubusercontent.com/62634760/106352473-c8944780-6326-11eb-9125-895569e59d94.PNG)
+ 
+
+ - getMapping으로 매개변수를 @PageableDefault(sort = "id", direction = Sort.Direction.ASC, size = 15) Pageable pageable로 받음   
+    - sort는 id를 기준으로 정렬 
+    - direction : Sort.Direction.ASC(오름차순), Sort.Direction.DESC(내림차순)
+    - size는 가져올 user정보 객체 수
+    - 앞 설정을 가진 Pageable객체를 매개변수로 받음
+ 
+   ![캡처1](https://user-images.githubusercontent.com/62634760/106352480-d1851900-6326-11eb-9c0c-cc603b143294.PNG)
