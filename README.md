@@ -293,7 +293,7 @@ public interface UserRepository extends JapRepository<User, Long>{}
  - front 단에서 버튼 클릭으로 원하는 유저 데이터 수를 페이지별로 보여줄 수 있는 페이징 처리
  - user에 관해서만 진행해보았다.
  - model 폴더 -> Pagination 클래스 생성
- - Pagination 클래스는 데이터베이스 페이지를 가져옴.
+ - Pagination 클래스는 데이터베이스 페이지 정보를 가져옴.
     - private Integer totalPages; //총 몇개의 페이지가 있는지?
     - private Long totalElements; //총 몇개의 엘리먼트를 가지고 있는지? (총 유저 수가 몇명인지?)
     - private Integer currentPage; //현재 페이지는 몇번째인지?
@@ -309,8 +309,20 @@ public interface UserRepository extends JapRepository<User, Long>{}
  - Pageable 개념정리
    - 웹 개발 시 Pagination 과 Sorting은 필수적이라 할 수 있다. 하지만 개별적으로 구현하는 것과 페이징 쿼리를 날리는 것은 번거롭다. 
    - Spring Data JPA의 Pageable을 사용하면 이런 문제들을 쉽게 해결할 수 있고 서비스 로직에 집중할 수 있다.
+   - Spring Data JPA 에서는, 페이징을 위해서 기본적으로 Page 라는 객체와, Pageable 이라는 객체를 가지고 있다
+   - Pagable 이라는 객체는, 페이징 하는 방법을 기술해놓은 클래스(인터페이스) 라고 보면되고, Page 객체는 실제로 페이징으로 잘려진 객체들을 담고있는 객체라고 생각하면 된다.
    - Pageable 장점 
      - 요건에 맞는 Pagination을 구현할 수 있다.
      - 정렬이 필요한 데이터를 쉽게 Sorting 할 수 있다.
- - 먼저 
+ - Service로직을 보면 반환 타입은 Header<List<UserApiResponse>>이고, 매개변수로 Pageable를 받고 있다.
+ - userRepository모든 데이터를 pageable를 통해 찾아오고 Page<User>객체에 담는다.
+ - List<UserApiResponse>가 필요함으로 stream.map을 사용하여 user객체를 response2(userApiResponse를 return)를 통해 userApiResponse로 만듬
+ - stream.collect(Collectors.toList())로 List<userApiResponse>를 만듬.
+ - 페이지 정보를 표시해주기 위해 Pagination 객체를 생성하여 데이터를 builder함.
+    - page 객체는 각 user의 페이지 정보들을 포함하여 가져올 수 있음.(users는 page 객체)
+       - users.getTotalPages()       : 전체 페이지 정보
+       - users.getTotalElements()    : 전체 user수 정보
+       - users.getNumber()           : 현재 페이지 정보
+       - users.getNumberOfElements() : 현재 가져온 user정보 갯수
+ - controller로 return할 Header.OK(userApiResponsesList, pagination) 생성
 
