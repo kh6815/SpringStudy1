@@ -349,4 +349,9 @@ public interface UserRepository extends JapRepository<User, Long>{}
        ![4](https://user-images.githubusercontent.com/62634760/106352674-51f84980-6328-11eb-851a-a41a13ada3a3.PNG)
 
  - 미리 만들어둔 프론트 엔드단과 결합
+   - http://localhost:8080/pages
+     ![캡처](https://user-images.githubusercontent.com/62634760/106352737-e1056180-6328-11eb-8d95-415f98204397.PNG)
+
+   - http://localhost:8080/pages/user (고객관리 란)
+     ![캡처1](https://user-images.githubusercontent.com/62634760/106352738-e2368e80-6328-11eb-8d26-14a380e370e6.PNG)
 
