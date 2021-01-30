@@ -355,3 +355,27 @@ public interface UserRepository extends JapRepository<User, Long>{}
    - http://localhost:8080/pages/user (고객관리 란)
      ![캡처1](https://user-images.githubusercontent.com/62634760/106352738-e2368e80-6328-11eb-8d26-14a380e370e6.PNG)
 
+
+
+
+
+*** 페이징 처리2
+ - user 정보를 통해 orderGroup데이터와 item 목록까지 한꺼번에 json데이터로 받기 
+ 
+ - UserOrderInfoApiResponse : 사용자의 주문 정보를 조회하는 API Response를 만듬
+
+
+ - UserApiResponse에 private List<OrderGroupApiResponse> orderGroupApiResponsesList; 추가
+
+
+ - OrderGroupApiResponse에 private List<ItemApiResponse> itemApiResponseList; 추가
+
+ - UserApiLogicService에 반환타입이 Header<UserOrderInfoApiResponse>인 orderInfo 메서드 생성
+ - 매개변수인 id로 원하는 유저 정보를 userRepository 통해 가져옴
+ - response2(user)를 통해 UserApiResponse 객체 생성
+ - UserApiResponse안에 들어갈 orderGroupList 생성을 위해 가져온 user 객체에서 OrderGroupList()를 가져옴
+ - 가져온 OrderGroupList()를 List<OrderGroupResponse>로 만들기 위해 Stream.map().collect(Collectors.toList()); 사용
+ - 같은 방식으로 OrderGroupResponse에 들어갈 List<ItemApiResponse>를 만들기 위해 orderGroup.getOrderDetailList()에서 item을 가져와서 리스트를 만듬
+ - 만들어진 List<ItemApiResponse>를 orderGroupApiResponse에 넣고, 만들어진 List<OrderGroupApiResponse>를 userApiResponse에 넣음
+ - UserOrderInfoApiResponse를 생성하고 userApiResponse에를 build함.
+ - Header.OK(userOrderInfoApiResponse)를 return 함.
