@@ -21,10 +21,12 @@ public class Header<T> {
     //api 부가 설명
     private String description;
 
+    private Pagination pagination;
+
     private T data;
 
     //OK
-    public static <T> Header<T> OK(){
+    public static <T> Header<T> OK(){ //static을 통해 클래스 변수로 만들어 사용
         return (Header<T>) Header.builder()
                 .transactionTime(LocalDateTime.now())
                 .resultCode("OK")
@@ -48,6 +50,17 @@ public class Header<T> {
                 .transactionTime(LocalDateTime.now())
                 .resultCode("ERROR")
                 .description(description)
+                .build();
+    }
+
+    //DATA OK
+    public static <T> Header<T> OK(T data, Pagination pagination){
+        return (Header<T>) Header.builder()
+                .transactionTime(LocalDateTime.now())
+                .resultCode("OK")
+                .description("OK")
+                .data(data)
+                .pagination(pagination)
                 .build();
     }
 }
