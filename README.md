@@ -364,11 +364,15 @@ public interface UserRepository extends JapRepository<User, Long>{}
  
  - UserOrderInfoApiResponse : 사용자의 주문 정보를 조회하는 API Response를 만듬
 
+   ![1](https://user-images.githubusercontent.com/62634760/106372888-b0b8d400-63b7-11eb-9848-2845cb7f5f79.PNG)
 
  - UserApiResponse에 private List<OrderGroupApiResponse> orderGroupApiResponsesList; 추가
 
+   ![2](https://user-images.githubusercontent.com/62634760/106372891-b1ea0100-63b7-11eb-83cf-995a3415b0e8.PNG)
 
  - OrderGroupApiResponse에 private List<ItemApiResponse> itemApiResponseList; 추가
+
+   ![3](https://user-images.githubusercontent.com/62634760/106372892-b2829780-63b7-11eb-9ab4-0c32bb0fd776.PNG)
 
  - UserApiLogicService에 반환타입이 Header<UserOrderInfoApiResponse>인 orderInfo 메서드 생성
  - 매개변수인 id로 원하는 유저 정보를 userRepository 통해 가져옴
@@ -379,3 +383,10 @@ public interface UserRepository extends JapRepository<User, Long>{}
  - 만들어진 List<ItemApiResponse>를 orderGroupApiResponse에 넣고, 만들어진 List<OrderGroupApiResponse>를 userApiResponse에 넣음
  - UserOrderInfoApiResponse를 생성하고 userApiResponse에를 build함.
  - Header.OK(userOrderInfoApiResponse)를 return 함.
+
+   ![4](https://user-images.githubusercontent.com/62634760/106372893-b2829780-63b7-11eb-8933-cb09181abb6f.PNG)
+   ![4-1](https://user-images.githubusercontent.com/62634760/106372894-b31b2e00-63b7-11eb-9edd-2e2e699272dc.PNG)
+
+ - 컨트롤러 단에서 서비스 로직을 리턴함.
+   ![5](https://user-images.githubusercontent.com/62634760/106372895-b31b2e00-63b7-11eb-97e9-2c03e3f79019.PNG)
+
